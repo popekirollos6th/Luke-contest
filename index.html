@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173f35">
+<title>مسابقة إنجيل لوقا | الإصحاحات 1–6</title>
+<style>
+:root{--green:#173f35;--green2:#245b4c;--gold:#d6ad58;--cream:#fbf8f0;--ink:#26332e;--muted:#6f7d75;--line:#e5e7df;--white:#fff;--red:#a53a3a}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(150deg,#edf2e9 0%,#fbf8f0 55%,#f4ead4 100%);font-family:Tahoma,Arial,sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.shell{width:min(760px,100%);background:rgba(255,255,255,.96);border:1px solid #e8e5da;border-radius:24px;box-shadow:0 18px 60px #173f3514;overflow:hidden}
+.hero{background:var(--green);color:white;padding:28px 28px 24px;position:relative;text-align:center}
+.hero:after{content:"✦";position:absolute;left:22px;top:16px;color:var(--gold);font-size:25px;opacity:.9}
+.eyebrow{font-size:12px;letter-spacing:1px;color:#e8d7a8;margin-bottom:9px}
+h1{font-size:clamp(24px,5vw,34px);margin:0 0 9px;line-height:1.4}
+.hero p{margin:0;color:#e1ebe5;font-size:14px;line-height:1.8}
+.content{padding:clamp(20px,5vw,34px)}
+.intro{background:#f6f4ec;border:1px solid #ece6d5;border-radius:14px;padding:15px 17px;line-height:1.9;font-size:14px;margin-bottom:22px}
+label{display:block;font-size:14px;font-weight:bold;margin:16px 0 8px}
+input[type=text]{width:100%;padding:14px 15px;border:1px solid #d6ddd6;border-radius:12px;font:inherit;background:white;outline:none}
+input[type=text]:focus{border-color:var(--green2);box-shadow:0 0 0 3px #245b4c18}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:13px 18px;font-weight:bold;transition:.15s}
+.primary{background:var(--green);color:white;width:100%;margin-top:22px}
+.primary:hover{background:var(--green2);transform:translateY(-1px)}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.note{font-size:12px;line-height:1.8;color:var(--muted);margin-top:14px}
+.hidden{display:none!important}
+.progress-head{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px;margin-bottom:12px}
+.progress{height:7px;background:#e8ece6;border-radius:99px;overflow:hidden;margin-bottom:18px}
+.progress span{display:block;height:100%;background:var(--gold);width:0;transition:width .25s}
+.timer-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 20px;padding:12px 14px;background:#f6f4ec;border-radius:12px}.timer-number{font-size:24px;font-weight:bold;color:var(--green);font-variant-numeric:tabular-nums}.timer-track{height:6px;background:#e2e6df;border-radius:99px;overflow:hidden;margin-top:5px}.timer-track span{display:block;height:100%;width:100%;background:var(--green2);transition:width 1s linear}.timer-number.urgent{color:var(--red)}.tag{display:inline-block;background:#f2ead5;color:#765a1c;border-radius:99px;padding:6px 11px;font-size:12px;margin-bottom:12px}
+.question{font-size:22px;line-height:1.8;margin:0 0 20px;color:#1e382f}
+.answers{display:grid;gap:10px}
+.answer{display:flex;align-items:center;gap:11px;text-align:right;width:100%;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:normal;line-height:1.7}
+.answer:hover{border-color:#9db8a7;background:#f8fbf8}
+.answer.selected{border:2px solid var(--green2);background:#edf5ef}
+.answer .letter{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:9px;background:#f1f2ed;color:var(--green);font-weight:bold}
+.footer-actions{display:flex;gap:12px;margin-top:24px}
+.footer-actions button{flex:1}
+.secondary{background:#f0f2ed;color:var(--green)}
+.result{text-align:center}
+.score-circle{width:145px;height:145px;border:7px solid #e9d9ad;background:#fbf7ea;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:24px auto;color:var(--green)}
+.score-circle strong{font-size:38px}
+.score-circle span{font-size:13px;color:var(--muted)}
+.result h2{font-size:26px;margin:8px 0}
+.result p{line-height:1.9;color:var(--muted)}
+.summary{background:#f5f6f1;border-radius:14px;padding:15px;text-align:right;line-height:2;margin-top:20px}
+.alert{background:#fff0ed;border:1px solid #f0c9c1;color:#8b3028;border-radius:12px;padding:15px;line-height:1.8}
+.small{font-size:12px;color:var(--muted)}
+@media(max-width:520px){body{padding:10px}.shell{border-radius:18px}.hero{padding:24px 18px}.content{padding:20px}.question{font-size:19px}.footer-actions{flex-direction:column-reverse}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="eyebrow">مسابقة كتابية تفاعلية</div>
+    <h1>إنجيل لوقا</h1>
+    <p>الإصحاحات من الأول إلى السادس<br>«طوبى للذين يسمعون كلام الله ويحفظونه»</p>
+  </header>
+  <section id="start" class="content">
+    <div class="intro">أهلًا بيك في المسابقة! 🌿<br>جاوب عن 20 سؤالًا عشوائيًا من بنك أسئلة يغطي الإصحاحات الستة الأولى. لكل إجابة صحيحة نقطة واحدة، والنتيجة هتظهر في النهاية. كل سؤال له 20 ثانية فقط، والوقت ينتهي تلقائيًا.</div>
+    <label for="fullName">الاسم الثلاثي</label>
+    <input id="fullName" type="text" maxlength="100" autocomplete="name" placeholder="اكتب اسمك الثلاثي">
+    <button id="begin" class="primary">ابدأ المسابقة ←</button>
+    <p class="note">عند ضبط اتصال Supabase، يتم حفظ المحاولة والنتيجة مركزيًا. لكل سؤال 20 ثانية فقط.</p>
+    <div id="startError" class="alert hidden" role="alert" style="margin-top:16px"></div>
+  </section>
+  <section id="quiz" class="content hidden">
+    <div class="progress-head"><span id="counter">السؤال 1 من 20</span><span id="playerLabel"></span></div>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="timer-row"><div><strong>الوقت المتبقي للإجابة</strong><div class="small">ينتقل السؤال تلقائيًا عند انتهاء الوقت</div></div><div style="min-width:76px;text-align:center"><div id="timerNumber" class="timer-number">20</div><div class="timer-track"><span id="timerBar"></span></div></div></div>
+    <div id="kind" class="tag">اختيار من متعدد</div>
+    <h2 id="question" class="question"></h2>
+    <div id="answers" class="answers"></div>
+    <div class="footer-actions">
+      <button id="back" class="secondary">السابق</button>
+      <button id="next" class="primary" style="margin-top:0">التالي ←</button>
+    </div>
+    <p class="small">اختار إجابة واحدة لكل سؤال. مش هتظهر الإجابات الصحيحة إلا بعد انتهاء المسابقة.</p>
+  </section>
+  <section id="result" class="content hidden">
+    <div class="result">
+      <div class="tag">انتهت المسابقة</div>
+      <h2 id="resultTitle">شكرًا لمشاركتك!</h2>
+      <div class="score-circle"><strong id="score">0/20</strong><span>درجتك النهائية</span></div>
+      <p id="resultMessage"></p>
+      <div class="summary">
+        <div>اسم المتسابق: <strong id="resultName"></strong></div>
+        <div>الإجابات الصحيحة: <strong id="correctCount"></strong> من 20</div>
+        <div>النسبة المئوية: <strong id="percentage"></strong></div>
+        
+      </div>
+      <p class="note">تم إنهاء المسابقة. لو إعداد Supabase مكتمل، تم إرسال النتيجة للمنظم.</p>
+    </div>
+  </section>
+  <section id="locked" class="content hidden">
+    <div class="alert"><strong>المحاولة مستخدمة بالفعل.</strong><br>تم تسجيل محاولة سابقة بهذا الاسم على هذا المتصفح. لا يمكن بدء محاولة جديدة من هنا.</div>
+    <p class="note">لو دي مشكلة بالخطأ، تواصل مع منظم المسابقة. حذف بيانات المتصفح قد يمسح هذا القفل، كما أن شخصين لهما الاسم الثلاثي نفسه قد يتعارضان. الحماية المضمونة تحتاج قاعدة بيانات.</p>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+let supabaseClient = null;
+try { if (window.SUPABASE_URL && window.SUPABASE_ANON_KEY && !window.SUPABASE_URL.includes("YOUR_") && window.supabase) supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY); } catch(e) { console.warn("Supabase config missing", e); }
+const questions = [
+ {type:"اختيار من متعدد",ch:1,q:"من هو الكاهن الذي ظهر له الملاك وبشّره بميلاد يوحنا؟",a:["زكريا", "سمعان", "يوسف", "نيقوديموس"],c:0},
+ {type:"صح أم غلط",ch:1,q:"كانت أليصابات من بنات هارون.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:1,q:"«لأنه ليس شيء غير ممكن لدى ____». ",a:["الله", "الإنسان", "الملائكة", "الأنبياء"],c:0},
+ {type:"اختيار من متعدد",ch:1,q:"في أي مدينة كانت مريم عندما بشّرها الملاك؟",a:["الناصرة", "بيت لحم", "أورشليم", "أريحا"],c:0},
+ {type:"صح أم غلط",ch:1,q:"اسم الطفل الذي بشّر الملاك زكريا بميلاده هو يوحنا.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:1,q:"ماذا قالت مريم للملاك في نهاية البشارة؟",a:["هوذا أنا أمة الرب", "لا أستطيع", "اذهب عني", "سأفكر في الأمر"],c:0},
+ {type:"أكمل",ch:1,q:"«تعظم نفسي الرب، وتبتهج روحي بالله ____». ",a:["مخلّصي", "خالق السماء", "ملكي", "قدوسي"],c:0},
+ {type:"صح أم غلط",ch:1,q:"ذهبت مريم لزيارة أليصابات.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:1,q:"ماذا حدث للسان زكريا بعد أن كتب اسم الطفل؟",a:["انحلّ وتكلم وبارك الله", "ظل صامتًا", "مرض", "غادر البيت"],c:0},
+ {type:"أكمل",ch:1,q:"«وأنت أيها الصبي نبي العلي ____». ",a:["تُدعى", "تُنسى", "تُرفض", "تُخفى"],c:0},
+ {type:"اختيار من متعدد",ch:2,q:"أين وُلد يسوع؟",a:["الناصرة", "بيت لحم", "أورشليم", "أريحا"],c:1},
+ {type:"صح أم غلط",ch:2,q:"كان الرعاة يحرسون حراسات الليل على رعيتهم عندما ظهر لهم الملاك.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:2,q:"من الذي حمل الطفل يسوع على ذراعيه في الهيكل؟",a:["حنّة", "سمعان", "زكريا", "يوسف الرامي"],c:1},
+ {type:"أكمل",ch:2,q:"«المجد لله في الأعالي، وعلى الأرض السلام، وبالناس ____». ",a:["المسرة", "الخوف", "الحزن", "الخصام"],c:0},
+ {type:"صح أم غلط",ch:2,q:"كان يسوع في الثانية عشرة من عمره عندما بقي في أورشليم بعد العيد.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:2,q:"أين وجد يوسف ومريم يسوع بعد أن بحثا عنه؟",a:["في الهيكل بين المعلمين", "في السوق", "في بيت زكريا", "عند البحر"],c:0},
+ {type:"أكمل",ch:2,q:"«وكان يسوع يتقدم في الحكمة والقامة والنعمة عند الله و____». ",a:["الناس", "الملائكة", "الرعاة", "الجنود"],c:0},
+ {type:"صح أم غلط",ch:2,q:"كانت حنّة النبية لا تفارق الهيكل.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:3,q:"من الذي كان يكرز بمعمودية التوبة؟",a:["بطرس", "يوحنا المعمدان", "بولس", "أندراوس"],c:1},
+ {type:"صح أم غلط",ch:3,q:"عُمّد يسوع في نهر الأردن.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:3,q:"«أنت ابني الحبيب، بك ____». ",a:["سررت", "غضبت", "تعبت", "تعجبت"],c:0},
+ {type:"اختيار من متعدد",ch:3,q:"ماذا طلب يوحنا من الجموع أن تصنع دليلًا على التوبة؟",a:["أثمارًا تليق بالتوبة", "ثيابًا جديدة", "سفرًا بعيدًا", "صومًا دائمًا"],c:0},
+ {type:"صح أم غلط",ch:3,q:"قال يوحنا إنه غير مستحق أن يحل سيور حذاء الآتي بعده.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:3,q:"من كان واليًا على اليهودية وقت خدمة يوحنا بحسب بداية الإصحاح؟",a:["بيلاطس البنطي", "هيرودس الكبير فقط", "قيصر نيرون", "كورش"],c:0},
+ {type:"أكمل",ch:3,q:"«كل واد يمتلئ، وكل جبل وأكمة ____». ",a:["ينخفض", "يرتفع", "يختفي", "يتحرك شرقًا"],c:0},
+ {type:"اختيار من متعدد",ch:3,q:"من هو أبو يوحنا المعمدان؟",a:["زكريا", "يوسف", "يعقوب", "حَنّان"],c:0},
+ {type:"صح أم غلط",ch:3,q:"يذكر لوقا أن يسوع كان نحو ثلاثين سنة حين ابتدأ خدمته.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:3,q:"«صوت صارخ في البرية: أعدوا طريق ____». ",a:["الرب", "الملك", "موسى", "إيليا"],c:0},
+ {type:"اختيار من متعدد",ch:4,q:"كم يومًا صام يسوع في البرية؟",a:["7 أيام", "12 يومًا", "40 يومًا", "50 يومًا"],c:2},
+ {type:"صح أم غلط",ch:4,q:"جرّب إبليس يسوع في البرية.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:4,q:"في أي مجمع قرأ يسوع من سفر إشعياء؟",a:["مجمع كفرناحوم", "مجمع الناصرة", "مجمع أريحا", "مجمع بيت عنيا"],c:1},
+ {type:"أكمل",ch:4,q:"«روح الرب عليّ، لأنه مسحني لأبشر ____». ",a:["المساكين", "الملوك", "الجنود", "التجار"],c:0},
+ {type:"صح أم غلط",ch:4,q:"أهل الناصرة قبلوا كل ما قاله يسوع دون غضب.",a:["صح", "غلط"],c:1},
+ {type:"اختيار من متعدد",ch:4,q:"إلى أي مدينة ذهب يسوع بعد الناصرة؟",a:["كفرناحوم", "بيت لحم", "دمشق", "صور"],c:0},
+ {type:"صح أم غلط",ch:4,q:"شفى يسوع حماة سمعان من الحمى.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:4,q:"ماذا كانت الأرواح النجسة تصرخ عن يسوع؟",a:["أنت قدوس الله", "أنت نجار", "أنت ملك قيصر", "أنت صياد"],c:0},
+ {type:"أكمل",ch:4,q:"«ينبغي لي أن أبشر المدن الأخر أيضًا بملكوت الله، لأني لهذا ____». ",a:["أُرسلت", "وُلدت في الناصرة", "صمتّ", "سافرت"],c:0},
+ {type:"صح أم غلط",ch:4,q:"كان يسوع يخرج إلى موضع خلاء للصلاة.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:5,q:"ما مهنة سمعان بطرس قبل اتباع يسوع؟",a:["نجار", "صياد سمك", "عشار", "راعٍ"],c:1},
+ {type:"صح أم غلط",ch:5,q:"طلب يسوع من سمعان أن يبعد إلى العمق ويلقي الشباك للصيد.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:5,q:"من هو العشار الذي دعاه يسوع وتبعه؟",a:["لاوي", "زكا", "توما", "فيلبس"],c:0},
+ {type:"أكمل",ch:5,q:"قال يسوع: «لا يحتاج الأصحاء إلى طبيب بل ____». ",a:["المرضى", "الأغنياء", "الأقوياء", "المسافرون"],c:0},
+ {type:"صح أم غلط",ch:5,q:"امتلأت الشبكتان بالسمك بعد طاعة سمعان لكلام يسوع.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:5,q:"ماذا قال الأبرص ليسوع طالبًا الشفاء؟",a:["يا سيد، إن أردت تقدر أن تطهرني", "أعطني مالًا", "أرسلني إلى الهيكل", "علمني الصيد"],c:0},
+ {type:"صح أم غلط",ch:5,q:"قال يسوع للمفلوج إن خطاياه مغفورة له.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:5,q:"كيف وصل المفلوج إلى يسوع عندما كان البيت مزدحمًا؟",a:["أنزلوه من السقف", "دخل من النافذة", "جاء وحده ماشيًا", "انتظر حتى اليوم التالي"],c:0},
+ {type:"أكمل",ch:5,q:"«ما جئت لأدعو أبرارًا بل ____ إلى التوبة». ",a:["خطاة", "ملوكًا", "صيادين فقط", "كهنة"],c:0},
+ {type:"صح أم غلط",ch:5,q:"في مثل الثوب الجديد، قال يسوع إن رقعة من ثوب جديد لا توافق ثوبًا عتيقًا.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:6,q:"ماذا كان التلاميذ يفعلون في السبت عندما مروا بالزرع؟",a:["يفركون السنابل ويأكلون", "يصطادون السمك", "يبنون بيتًا", "يبيعون القمح"],c:0},
+ {type:"صح أم غلط",ch:6,q:"شفى يسوع الرجل الذي كانت يده اليمنى يابسة في يوم السبت.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:6,q:"كم رسولًا اختار يسوع من تلاميذه؟",a:["سبعة", "عشرة", "اثني عشر", "أربعين"],c:2},
+ {type:"أكمل",ch:6,q:"«طوبى لكم أيها ____، لأن لكم ملكوت الله». ",a:["المساكين", "الأغنياء دائمًا", "المتسلطون", "المتكبرون"],c:0},
+ {type:"صح أم غلط",ch:6,q:"علّم يسوع أن نحب أعداءنا ونحسن إلى مبغضينا.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:6,q:"بماذا شبّه يسوع من يسمع كلامه ويعمل به؟",a:["إنسان بنى بيتًا وحفر وعمّق ووضع الأساس على الصخر", "شجرة بلا ثمر", "سفينة في البحر", "زرعًا بلا ماء"],c:0},
+ {type:"أكمل",ch:6,q:"«كونوا رحماء كما أن أباكم أيضًا ____». ",a:["رحيم", "قوي", "عظيم", "قدوس"],c:0},
+ {type:"صح أم غلط",ch:6,q:"قال يسوع إن التلميذ ليس أفضل من معلمه.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:6,q:"ما الذي يخرج من فيض القلب؟",a:["يتكلم به الفم", "يختفي دائمًا", "لا شيء", "المال فقط"],c:0},
+ {type:"صح أم غلط",ch:6,q:"علّم يسوع أن نخرج القذى من عين أخينا قبل أن ننتبه إلى الخشبة في عيننا.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:6,q:"«كل شجرة تُعرف من ____». ",a:["ثمرها", "ظلها فقط", "ارتفاعها", "جذورها الظاهرة فقط"],c:0},
+ {type:"اختيار من متعدد",ch:1,q:"ما اسم الملاك الذي بشّر مريم بميلاد يسوع؟",a:["جبرائيل", "ميخائيل", "روفائيل", "أوريئيل"],c:0},
+ {type:"صح أم غلط",ch:1,q:"قال الملاك إن يوحنا سيُدعى نبي العلي.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:2,q:"من الذين ظهروا للرعاة وبشرّوهم بميلاد المخلّص؟",a:["ملاك وجمهور من الجند السماوي", "جنود هيرودس", "كهنة الهيكل فقط", "تجار من أورشليم"],c:0},
+ {type:"أكمل",ch:2,q:"«وكانت مريم تحفظ جميع هذا الكلام متفكرة به في ____». ",a:["قلبها", "الهيكل", "السوق", "الطريق"],c:0},
+ {type:"صح أم غلط",ch:4,q:"قال يسوع إن النبي ليس مقبولًا في وطنه.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:5,q:"لماذا تعجب الكتبة والفريسيون عندما غفر يسوع خطايا المفلوج؟",a:["لأنهم تساءلوا من يقدر أن يغفر الخطايا إلا الله وحده", "لأن البيت كان صغيرًا", "لأن المفلوج كان غنيًا", "لأن يسوع لم يتكلم"],c:0}
+];
+const $=id=>document.getElementById(id);
+const sections=["start","quiz","result","locked"];
+let current=0, picks=Array(20).fill(null), player="", activeQuestions=[], timeLeft=20, timerHandle=null, questionStartedAt=0;
+function show(id){sections.forEach(s=>$(s).classList.toggle("hidden",s!==id))}
+function normalizeName(name){return name.trim().replace(/\s+/g," ").toLocaleLowerCase("ar")}
+function keyFor(name){return "lukeQuizAttempt:"+normalizeName(name)}
+function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function stopTimer(){if(timerHandle){clearInterval(timerHandle);timerHandle=null}}
+function startTimer(){
+ stopTimer();timeLeft=20;questionStartedAt=Date.now();updateTimer();
+ timerHandle=setInterval(()=>{timeLeft=Math.max(0,20-Math.floor((Date.now()-questionStartedAt)/1000));updateTimer();if(timeLeft<=0){stopTimer();advanceQuestion(true)}},200);
+}
+function updateTimer(){
+ const n=$("timerNumber");n.textContent=String(timeLeft);n.classList.toggle("urgent",timeLeft<=5);$("timerBar").style.width=(timeLeft/20*100)+"%";$("timerBar").style.background=timeLeft<=5?"var(--red)":"var(--green2)";
+}
+function render(){
+ stopTimer();
+ const item=activeQuestions[current];
+ $("counter").textContent=`السؤال ${current+1} من ${20} · لوقا ${item.ch}`;
+ $("playerLabel").textContent=player;
+ $("bar").style.width=((current+1)/activeQuestions.length*100)+"%";
+ $("kind").textContent=item.type;
+ $("question").textContent=item.q;
+ $("answers").innerHTML="";
+ item.a.forEach((answer,i)=>{
+  const b=document.createElement("button"); b.type="button"; b.className="answer"+(picks[current]===i?" selected":"");
+  const letter=document.createElement("span");letter.className="letter";letter.textContent=["أ","ب","ج","د"][i];
+  const txt=document.createElement("span");txt.textContent=answer;b.append(letter,txt);
+  b.addEventListener("click",()=>{picks[current]=i;[...$("answers").children].forEach((el,j)=>el.classList.toggle("selected",j===i))});$("answers").appendChild(b);
+ });
+ $("back").disabled=true;
+ $("next").textContent=current===activeQuestions.length-1?"إنهاء وإظهار النتيجة":"التالي ←";
+ startTimer();
+}
+async function startQuiz(){
+ player=$("fullName").value.trim();
+ $("startError").classList.add("hidden");
+ const parts=player.split(/\s+/).filter(Boolean);
+ if(parts.length<3){$("startError").textContent="من فضلك اكتب الاسم الثلاثي (ثلاث كلمات على الأقل)."; $("startError").classList.remove("hidden");return}
+ if(localStorage.getItem(keyFor(player))){show("locked");return}
+ if(supabaseClient){
+   const {data, error} = await supabaseClient.rpc('reserve_quiz_attempt', {p_full_name: player, p_normalized_name: normalizeName(player)});
+   if(error){$('startError').textContent = error.message.includes('already_taken') ? 'الاسم ده سجّل محاولة قبل كده.' : 'تعذر الاتصال بقاعدة البيانات. راجع إعدادات Supabase وحاول مرة أخرى.'; $('startError').classList.remove('hidden'); return;}
+   window.currentAttemptId = data;
+ }
+ localStorage.setItem(keyFor(player),JSON.stringify({player,status:"active",startedAt:new Date().toISOString()}));
+ activeQuestions=shuffle(questions).slice(0,20);
+ current=0;picks=Array(activeQuestions.length).fill(null);render();show("quiz");
+}
+function finish(){
+ stopTimer();
+ const correct=picks.reduce((n,p,i)=>n+(p===activeQuestions[i].c?1:0),0);
+ // Store the final result centrally if Supabase is configured.
+ localStorage.setItem(keyFor(player),JSON.stringify({player,status:"finished",score:correct,total:activeQuestions.length,finishedAt:new Date().toISOString()}));
+ if(supabaseClient && window.currentAttemptId){
+   supabaseClient.rpc('finish_quiz_attempt', {p_attempt_id: window.currentAttemptId, p_score: correct, p_total: activeQuestions.length})
+   .then(({error})=>{ if(error) console.error('Could not save score:',error); });
+ }
+ 
+ $("resultName").textContent=player;$("score").textContent=`${correct}/${activeQuestions.length}`;
+ $("correctCount").textContent=correct;$("percentage").textContent=Math.round(correct/activeQuestions.length*100)+"%";
+ $("resultTitle").textContent=correct>=18?"ممتاز جدًا! 🌟":correct>=14?"شاطر جدًا! 👏":correct>=10?"أحسنت، كمّل قراءة! 🌿":"شكرًا لمشاركتك ❤️";
+ $("resultMessage").textContent=correct>=14?"واضح إنك مذاكر كويس في الإصحاحات الأولى من إنجيل لوقا.":"كل مشاركة فرصة نتعلم فيها أكتر من كلمة ربنا. راجع الإصحاحات وافتكر إن الهدف هو الفهم والنمو.";
+ show("result");
+}
+$("begin").addEventListener("click",startQuiz);
+$("back").addEventListener("click",()=>{});
+function advanceQuestion(timedOut=false){
+ if(current<activeQuestions.length-1){current++;render()}else{finish()}
+}
+$("next").addEventListener("click",()=>{
+ stopTimer();
+ if(current<activeQuestions.length-1){advanceQuestion(false)}else{finish()}
+});
+</script>
+</body>
+</html>
