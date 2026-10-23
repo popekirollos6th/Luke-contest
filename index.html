@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#173f35">
-<title>مسابقة إنجيل لوقا | الإصحاحات 1–6</title>
+<title>مسابقة إنجيل لوقا | الإصحاحات 1–12</title>
 <style>
 :root{--green:#173f35;--green2:#245b4c;--gold:#d6ad58;--cream:#fbf8f0;--ink:#26332e;--muted:#6f7d75;--line:#e5e7df;--white:#fff;--red:#a53a3a}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(150deg,#edf2e9 0%,#fbf8f0 55%,#f4ead4 100%);font-family:Tahoma,Arial,sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
@@ -55,10 +55,15 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none}
   <header class="hero">
     <div class="eyebrow">مسابقة كتابية تفاعلية</div>
     <h1>إنجيل لوقا</h1>
-    <p>الإصحاحات من الأول إلى السادس<br>«طوبى للذين يسمعون كلام الله ويحفظونه»</p>
+    <p id="chapterSubtitle">اختاري الجزء الأول أو الثاني<br>«طوبى للذين يسمعون كلام الله ويحفظونه»</p>
   </header>
   <section id="start" class="content">
-    <div class="intro">أهلًا بيك في المسابقة! 🌿<br>جاوب عن 20 سؤالًا عشوائيًا من بنك أسئلة يغطي الإصحاحات الستة الأولى. لكل إجابة صحيحة نقطة واحدة، والنتيجة هتظهر في النهاية. كل سؤال له 20 ثانية فقط، والوقت ينتهي تلقائيًا.</div>
+    <div class="intro">أهلًا بيك في المسابقة! 🌿<br>اختار الجزء المطلوب، واكتب اسمك الثلاثي. هتجاوب عن 20 سؤالًا عشوائيًا، ولكل سؤال 20 ثانية.</div>
+    <label for="partSelect">اختار جزء المسابقة</label>
+    <select id="partSelect" style="width:100%;padding:14px 15px;border:1px solid #d6ddd6;border-radius:12px;font:inherit;background:white">
+      <option value="1">الجزء الأول — الإصحاحات 1 إلى 6</option>
+      <option value="2">الجزء الثاني — الإصحاحات 7 إلى 12</option>
+    </select>
     <label for="fullName">الاسم الثلاثي</label>
     <input id="fullName" type="text" maxlength="100" autocomplete="name" placeholder="اكتب اسمك الثلاثي">
     <button id="begin" class="primary">ابدأ المسابقة ←</button>
@@ -90,7 +95,7 @@ button:disabled{opacity:.45;cursor:not-allowed;transform:none}
         <div>النسبة المئوية: <strong id="percentage"></strong></div>
         
       </div>
-      <p class="note">تم إنهاء المسابقة. لو إعداد Supabase مكتمل، تم إرسال النتيجة للمنظم.</p>
+      <p class="note">تم إنهاء الجزء المحدد. لو إعداد Supabase مكتمل، تم إرسال النتيجة للمنظم.</p>
     </div>
   </section>
   <section id="locked" class="content hidden">
@@ -163,6 +168,54 @@ const questions = [
  {type:"اختيار من متعدد",ch:6,q:"ما الذي يخرج من فيض القلب؟",a:["يتكلم به الفم", "يختفي دائمًا", "لا شيء", "المال فقط"],c:0},
  {type:"صح أم غلط",ch:6,q:"علّم يسوع أن نخرج القذى من عين أخينا قبل أن ننتبه إلى الخشبة في عيننا.",a:["صح", "غلط"],c:0},
  {type:"أكمل",ch:6,q:"«كل شجرة تُعرف من ____». ",a:["ثمرها", "ظلها فقط", "ارتفاعها", "جذورها الظاهرة فقط"],c:0},
+ {type:"اختيار من متعدد",ch:7,q:"من هو قائد المئة الذي طلب من يسوع شفاء غلامه؟",a:["قائد مئة في كفرناحوم", "قائد من أورشليم", "هيرودس", "قائد من الناصرة"],c:0},
+ {type:"صح أم غلط",ch:7,q:"أقام يسوع ابن أرملة نايين من الموت عند باب المدينة.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:7,q:"ماذا أرسل يوحنا المعمدان ليسأل يسوع؟",a:["أأنت الآتي أم ننتظر آخر؟", "أين ستذهب؟", "من هو أعظم التلاميذ؟", "متى ينتهي الصوم؟"],c:0},
+ {type:"أكمل",ch:7,q:"«إيمانك قد خلصك، اذهبي بسلام» قالها يسوع للمرأة التي ____ قدميه.",a:["بللت بالدموع ومسحت بشعرها", "قدمت له خبزًا", "أحضرت له ماءً", "وضعت على رأسه تاجًا"],c:0},
+ {type:"صح أم غلط",ch:7,q:"قال يسوع إن بين المولودين من النساء ليس نبي أعظم من يوحنا المعمدان.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:7,q:"في بيت مَن كان يسوع عندما جاءت المرأة الخاطئة؟",a:["سمعان الفريسي", "زكا العشار", "لاوي", "نيقوديموس"],c:0},
+ {type:"أكمل",ch:7,q:"«مغفورة لك خطاياك» قال يسوع للـ ____.",a:["المرأة", "قائد المئة", "الفريسي", "تلميذ من الاثني عشر"],c:0},
+ {type:"صح أم غلط",ch:7,q:"قال يسوع إن الذي يُغفر له قليل يحب قليلًا.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:8,q:"ما اسم المرأة التي كان قد خرج منها سبعة شياطين؟",a:["مريم التي تدعى المجدلية", "مرثا", "أليصابات", "حنة"],c:0},
+ {type:"صح أم غلط",ch:8,q:"شرح يسوع مثل الزارع لتلاميذه.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:8,q:"«الزرع هو ____ الله».",a:["كلمة", "محبة", "نور", "ملكوت"],c:0},
+ {type:"اختيار من متعدد",ch:8,q:"ماذا قال يسوع للبحر والريح عندما هاجت العاصفة؟",a:["اسكت! ابكم!", "اتبعوني", "لا تخافوا", "افتحوا الأبواب"],c:0},
+ {type:"صح أم غلط",ch:8,q:"كان اسم الأرواح الكثيرة التي في الرجل المجنون «لجيون».",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:8,q:"كم سنة كانت المرأة نازفة الدم تعاني من نزفها؟",a:["12 سنة", "7 سنوات", "18 سنة", "40 سنة"],c:0},
+ {type:"أكمل",ch:8,q:"قال يسوع ليائيرس: «لا تخف، آمن فقط، فهي ____».",a:["تحيا", "ستسافر", "ستنام دائمًا", "ستكبر"],c:0},
+ {type:"صح أم غلط",ch:8,q:"أطعم يسوع الجموع بخمس خبزات وسمكتين في هذا الإصحاح.",a:["صح", "غلط"],c:1},
+ {type:"اختيار من متعدد",ch:9,q:"كم رسولًا أرسلهم يسوع ليكرزوا بملكوت الله ويشفوا المرضى؟",a:["الاثني عشر", "السبعين", "ثلاثة", "خمسة"],c:0},
+ {type:"صح أم غلط",ch:9,q:"اعترف بطرس أن يسوع هو مسيح الله.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:9,q:"كم رغيفًا وكم سمكة كانت مع التلاميذ عند إطعام الخمسة آلاف؟",a:["خمسة أرغفة وسمكتان", "سبعة أرغفة وسمكة", "رغيفان وخمس سمكات", "اثنا عشر رغيفًا"],c:0},
+ {type:"أكمل",ch:9,q:"«إن أراد أحد أن يأتي ورائي، فلينكر نفسه ويحمل ____ كل يوم ويتبعني».",a:["صليبه", "كتابه", "عصاه", "ثوبه"],c:0},
+ {type:"صح أم غلط",ch:9,q:"أخذ يسوع بطرس ويوحنا ويعقوب وصعد إلى الجبل ليصلي.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:9,q:"من اللذان ظهرا مع يسوع في المجد على الجبل؟",a:["موسى وإيليا", "إبراهيم وإسحاق", "داود وسليمان", "ملاك وجبرائيل"],c:0},
+ {type:"صح أم غلط",ch:9,q:"قال صوت من السحابة: هذا هو ابني الحبيب، له اسمعوا.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:9,q:"«من هو أصغر فيكم جميعًا، فهذا يكون ____».",a:["عظيمًا", "مرفوضًا", "غنيًا", "رئيسًا على الرومان"],c:0},
+ {type:"اختيار من متعدد",ch:10,q:"كم تلميذًا آخر عيّن الرب وأرسلهم أمام وجهه؟",a:["سبعين آخرين", "اثني عشر فقط", "خمسة وعشرين", "مئة"],c:0},
+ {type:"صح أم غلط",ch:10,q:"قال يسوع للسبعين أن يفرحوا لأن أسماءهم كُتبت في السماوات.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:10,q:"في مثل السامري الصالح، من الذي اعتنى بالرجل المجروح؟",a:["سامري", "كاهن", "لاوي", "جندي روماني"],c:0},
+ {type:"أكمل",ch:10,q:"«تحب الرب إلهك من كل قلبك ومن كل نفسك ومن كل ____ ومن كل فكرك».",a:["قدرتك", "مالك", "وقتك", "بيتك"],c:0},
+ {type:"صح أم غلط",ch:10,q:"كانت مرثا منشغلة بخدمة كثيرة، أما مريم فجلست عند قدمي يسوع تسمع كلامه.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:10,q:"ماذا قال يسوع إن مريم اختارت؟",a:["النصيب الصالح", "العمل الكثير", "السفر", "الصمت"],c:0},
+ {type:"صح أم غلط",ch:10,q:"في مثل السامري الصالح، توقف الكاهن واعتنى بالرجل المجروح.",a:["صح", "غلط"],c:1},
+ {type:"أكمل",ch:10,q:"«اذهب أنت أيضًا واصنع ____».",a:["هكذا", "وليمة", "سفينة", "خيمة"],c:0},
+ {type:"اختيار من متعدد",ch:11,q:"بماذا علّم يسوع تلاميذه أن يصلّوا في بداية الإصحاح؟",a:["يا أبتاه، ليتقدس اسمك", "صلاة حنة", "صلاة دانيال", "مزمور داود فقط"],c:0},
+ {type:"صح أم غلط",ch:11,q:"قال يسوع: اسألوا تعطوا، اطلبوا تجدوا، اقرعوا يفتح لكم.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:11,q:"بماذا شبّه يسوع عطية الآب للذين يسألونه؟",a:["الروح القدس", "المال", "السلطة", "الخبز وحده"],c:0},
+ {type:"أكمل",ch:11,q:"«كل مملكة منقسمة على ذاتها ____».",a:["تخرب", "تقوى", "تنتشر", "تفرح"],c:0},
+ {type:"صح أم غلط",ch:11,q:"قال يسوع إن السراج يوضع في مكان خفي تحت المكيال.",a:["صح", "غلط"],c:1},
+ {type:"اختيار من متعدد",ch:11,q:"ما العلامة التي قال يسوع إن هذا الجيل سيُعطى إياها؟",a:["علامة يونان النبي", "علامة داود", "علامة موسى", "علامة سليمان فقط"],c:0},
+ {type:"صح أم غلط",ch:11,q:"وبّخ يسوع الفريسيين لأنهم يهتمون بالعشور ويتركون الحق ومحبة الله.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:11,q:"«ويل لكم أيها الناموسيون، لأنكم أخذتم ____ المعرفة».",a:["مفتاح", "كتاب", "باب", "سراج"],c:0},
+ {type:"اختيار من متعدد",ch:12,q:"بماذا حذّر يسوع تلاميذه من خمير الفريسيين؟",a:["الرياء", "الفرح", "الصلاة", "المحبة"],c:0},
+ {type:"صح أم غلط",ch:12,q:"قال يسوع إن خمس عصافير تباع بفلسين، وواحد منها ليس منسيًا أمام الله.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:12,q:"في مثل الغني الغبي، ماذا حدث للرجل الذي جمع خيرات كثيرة لنفسه؟",a:["طلب الله نفسه في تلك الليلة", "صار ملكًا", "وزع كل ماله قبل النوم", "سافر إلى أورشليم"],c:0},
+ {type:"أكمل",ch:12,q:"«حيث يكون كنزكم هناك يكون ____ أيضًا».",a:["قلبكم", "بيتكم", "جسدكم", "اسمكم"],c:0},
+ {type:"صح أم غلط",ch:12,q:"قال يسوع لتلاميذه ألا يطلبوا ماذا يأكلون أو ماذا يشربون بقلق.",a:["صح", "غلط"],c:0},
+ {type:"اختيار من متعدد",ch:12,q:"بماذا شبّه يسوع المؤمنين الذين ينتظرون سيدهم؟",a:["أناس ينتظرون سيدهم متى يرجع من العرس", "جنودًا في معركة", "صيادين في البحر", "تجارًا في السوق"],c:0},
+ {type:"صح أم غلط",ch:12,q:"قال يسوع: كل من أُعطي كثيرًا يُطلب منه كثير.",a:["صح", "غلط"],c:0},
+ {type:"أكمل",ch:12,q:"«كونوا أنتم مستعدين، لأنه في ساعة لا تظنون يأتي ابن ____».",a:["الإنسان", "داود", "موسى", "زكريا"],c:0},
  {type:"اختيار من متعدد",ch:1,q:"ما اسم الملاك الذي بشّر مريم بميلاد يسوع؟",a:["جبرائيل", "ميخائيل", "روفائيل", "أوريئيل"],c:0},
  {type:"صح أم غلط",ch:1,q:"قال الملاك إن يوحنا سيُدعى نبي العلي.",a:["صح", "غلط"],c:0},
  {type:"اختيار من متعدد",ch:2,q:"من الذين ظهروا للرعاة وبشرّوهم بميلاد المخلّص؟",a:["ملاك وجمهور من الجند السماوي", "جنود هيرودس", "كهنة الهيكل فقط", "تجار من أورشليم"],c:0},
@@ -172,10 +225,10 @@ const questions = [
 ];
 const $=id=>document.getElementById(id);
 const sections=["start","quiz","result","locked"];
-let current=0, picks=Array(20).fill(null), player="", activeQuestions=[], timeLeft=20, timerHandle=null, questionStartedAt=0;
+let current=0, picks=Array(20).fill(null), player="", activeQuestions=[], timeLeft=20, timerHandle=null, questionStartedAt=0, selectedPart=1;
 function show(id){sections.forEach(s=>$(s).classList.toggle("hidden",s!==id))}
 function normalizeName(name){return name.trim().replace(/\s+/g," ").toLocaleLowerCase("ar")}
-function keyFor(name){return "lukeQuizAttempt:"+normalizeName(name)}
+function keyFor(name,part=selectedPart){return "lukeQuizAttempt:part"+part+":"+normalizeName(name)}
 function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function stopTimer(){if(timerHandle){clearInterval(timerHandle);timerHandle=null}}
 function startTimer(){
@@ -206,24 +259,27 @@ function render(){
 }
 async function startQuiz(){
  player=$("fullName").value.trim();
+ selectedPart=Number($("partSelect").value)||1;
  $("startError").classList.add("hidden");
  const parts=player.split(/\s+/).filter(Boolean);
  if(parts.length<3){$("startError").textContent="من فضلك اكتب الاسم الثلاثي (ثلاث كلمات على الأقل)."; $("startError").classList.remove("hidden");return}
- if(localStorage.getItem(keyFor(player))){show("locked");return}
+ if(localStorage.getItem(keyFor(player,selectedPart))){show("locked");return}
  if(supabaseClient){
-   const {data, error} = await supabaseClient.rpc('reserve_quiz_attempt', {p_full_name: player, p_normalized_name: normalizeName(player)});
+   const {data, error} = await supabaseClient.rpc('reserve_quiz_attempt', {p_full_name: player, p_normalized_name: normalizeName(player), p_part: selectedPart});
    if(error){$('startError').textContent = error.message.includes('already_taken') ? 'الاسم ده سجّل محاولة قبل كده.' : 'تعذر الاتصال بقاعدة البيانات. راجع إعدادات Supabase وحاول مرة أخرى.'; $('startError').classList.remove('hidden'); return;}
    window.currentAttemptId = data;
  }
- localStorage.setItem(keyFor(player),JSON.stringify({player,status:"active",startedAt:new Date().toISOString()}));
- activeQuestions=shuffle(questions).slice(0,20);
+ localStorage.setItem(keyFor(player,selectedPart),JSON.stringify({player,part:selectedPart,status:"active",startedAt:new Date().toISOString()}));
+ const chapterMin=selectedPart===1?1:7, chapterMax=selectedPart===1?6:12;
+ activeQuestions=shuffle(questions.filter(q=>q.ch>=chapterMin&&q.ch<=chapterMax)).slice(0,20);
+ $("chapterSubtitle").innerHTML=selectedPart===1?"الإصحاحات من الأول إلى السادس<br>«طوبى للذين يسمعون كلام الله ويحفظونه»":"الإصحاحات من السابع إلى الثاني عشر<br>«طوبى للذين يسمعون كلام الله ويحفظونه»";
  current=0;picks=Array(activeQuestions.length).fill(null);render();show("quiz");
 }
 function finish(){
  stopTimer();
  const correct=picks.reduce((n,p,i)=>n+(p===activeQuestions[i].c?1:0),0);
  // Store the final result centrally if Supabase is configured.
- localStorage.setItem(keyFor(player),JSON.stringify({player,status:"finished",score:correct,total:activeQuestions.length,finishedAt:new Date().toISOString()}));
+ localStorage.setItem(keyFor(player,selectedPart),JSON.stringify({player,part:selectedPart,status:"finished",score:correct,total:activeQuestions.length,finishedAt:new Date().toISOString()}));
  if(supabaseClient && window.currentAttemptId){
    supabaseClient.rpc('finish_quiz_attempt', {p_attempt_id: window.currentAttemptId, p_score: correct, p_total: activeQuestions.length})
    .then(({error})=>{ if(error) console.error('Could not save score:',error); });
@@ -232,7 +288,7 @@ function finish(){
  $("resultName").textContent=player;$("score").textContent=`${correct}/${activeQuestions.length}`;
  $("correctCount").textContent=correct;$("percentage").textContent=Math.round(correct/activeQuestions.length*100)+"%";
  $("resultTitle").textContent=correct>=18?"ممتاز جدًا! 🌟":correct>=14?"شاطر جدًا! 👏":correct>=10?"أحسنت، كمّل قراءة! 🌿":"شكرًا لمشاركتك ❤️";
- $("resultMessage").textContent=correct>=14?"واضح إنك مذاكر كويس في الإصحاحات الأولى من إنجيل لوقا.":"كل مشاركة فرصة نتعلم فيها أكتر من كلمة ربنا. راجع الإصحاحات وافتكر إن الهدف هو الفهم والنمو.";
+ $("resultMessage").textContent=correct>=14?selectedPart===1?"واضح إنك مذاكر كويس في الإصحاحات الأولى من إنجيل لوقا.":"واضح إنك مذاكر كويس في الإصحاحات من 7 إلى 12 من إنجيل لوقا.":"كل مشاركة فرصة نتعلم فيها أكتر من كلمة ربنا. راجع الإصحاحات وافتكر إن الهدف هو الفهم والنمو.";
  show("result");
 }
 $("begin").addEventListener("click",startQuiz);
