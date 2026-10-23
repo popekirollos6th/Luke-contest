@@ -271,7 +271,10 @@ async function startQuiz(){
  }
  localStorage.setItem(keyFor(player,selectedPart),JSON.stringify({player,part:selectedPart,status:"active",startedAt:new Date().toISOString()}));
  const chapterMin=selectedPart===1?1:7, chapterMax=selectedPart===1?6:12;
- activeQuestions=shuffle(questions.filter(q=>q.ch>=chapterMin&&q.ch<=chapterMax)).slice(0,20);
+ activeQuestions=shuffle(questions.filter(q=>q.ch>=chapterMin&&q.ch<=chapterMax)).slice(0,20).map(q=>{
+  const order=shuffle(q.a.map((_,i)=>i));
+  return {...q,a:order.map(i=>q.a[i]),c:order.indexOf(q.c)};
+ });
  $("chapterSubtitle").innerHTML=selectedPart===1?"الإصحاحات من الأول إلى السادس<br>«طوبى للذين يسمعون كلام الله ويحفظونه»":"الإصحاحات من السابع إلى الثاني عشر<br>«طوبى للذين يسمعون كلام الله ويحفظونه»";
  current=0;picks=Array(activeQuestions.length).fill(null);render();show("quiz");
 }
